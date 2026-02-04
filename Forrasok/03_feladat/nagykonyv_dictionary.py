@@ -23,7 +23,7 @@ with open('./Forrasok/02_feladat/konyvek.txt', 'r', encoding='utf-8') as forrasf
 
 print(f'{konyvek=}')
 #3.2
-print(f'Az állományban ennyi könyv adata szerepel: {len(konyvek)} db')
+print(f'3.2 Az állományban ennyi könyv adata szerepel: {len(konyvek)} db')
 
 #3.3 feladat  
 magyar_konyvek = []
@@ -36,4 +36,26 @@ legjobb_konyv = magyar_konyvek[0]
 for konyv in magyar_konyvek:
     if konyv ["helyezes"] < legjobb_konyv['helyezes']:
         legjobb_konyv = konyv      
-print(f"A legjobb helyezést elért magyar könyv: {legjobb_konyv["nev"]:} {legjobb_konyv["cim"]}")        
+print(f"3.3 A legjobb helyezést elért magyar könyv: {legjobb_konyv["nev"]:} {legjobb_konyv["cim"]}")
+
+#3.4
+van = False
+for konyv in konyvek:
+    if konyv['nemzetiseg']  == "német":
+            van = True
+            break
+if van:
+        print("3.4 A listában szerepel német  író könyve")
+else:
+        print("A listában nincs német író könyve")
+
+#3.5
+idosebb_mint_90 =  set ()
+for konyv in konyvek:
+    if ((konyv['hal_ev']- konyv['szul_ev']) > 90):
+        idosebb_mint_90.add(konyv['nev'])
+
+print(idosebb_mint_90)
+print("3.5 feladat: 90 évesnél idősebb írók")
+for iro in idosebb_mint_90:
+    print("\t" + iro)
